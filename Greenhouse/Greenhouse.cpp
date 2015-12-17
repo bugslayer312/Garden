@@ -2414,7 +2414,7 @@ void GWarnLed::setBlink(uint8_t dashCnt, uint8_t dotCnt)
 // 44..47 - devicesShutdownTemp
 
 
-// лень переписывать. все что ниже +32 бита (расширились собственные настройки гроубокса)
+// лень переписывать. все что ниже +32 бита (расширились собственные настройки теплицы)
 
 // 16..31 - ledLampLeft1 GScheduleDevice settings
 // 0 byte - DEVICE_SAVE_BEGIN_MARKER
