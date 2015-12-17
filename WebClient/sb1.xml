@@ -1,0 +1,6 @@
+<dl>
+    <dt id="main_info"><a href="javascript:" onclick="mainSideBarClick(0)">Информация</a></dt>
+    <dt id="main_manage"><a href="javascript:" onclick="mainSideBarClick(1)">Управление</a></dt>
+    <dt id="main_manage"><a href="javascript:" onclick="mainSideBarClick(2)">GSM модуль</a></dt>
+</dl>
+

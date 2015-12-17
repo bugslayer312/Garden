@@ -1,0 +1,157 @@
+﻿<div id="dev_header_box" style="border-bottom:1px solid #aaaaaa;margin-bottom:5px">
+    <h2><span id="dev_caption"></span></h2>
+</div>
+<div id="dev_summary_box" class="dev_io_box">
+    <fieldset>
+        <legend class="block_caption">Информация об устройстве</legend>
+        <div class="dev_io_box_inn">
+            <p>Наименование: <span id="dev_name" class="data_value"></span></p>
+            <p>Идентификатор: <span id="dev_id" class="data_value"></span></p>
+            <p>Температура: <span id="dev_temp" class="data_value"></span> &degC</p>
+            <p><input type="checkbox" id="dev_con" onclick="devConnectedClick()">Подключено</input></p>
+        </div>
+    </fieldset>
+</div>
+<div id="dev_mode_box" class="dev_io_box">
+    <fieldset>
+        <legend class="block_caption">Режим</legend>
+        <div class="dev_io_box_inn">
+            <p><input type="radio" name="dev_mode" onclick="devModeClick()">Выключено</input></p>
+            <p><input type="radio" name="dev_mode" onclick="devModeClick()" checked>Автоматически</input></p>
+            <p><input type="radio" name="dev_mode" onclick="devModeClick()">Включено</input></p>
+        </div>
+    </fieldset>
+</div>
+<div id="dev_modeexled_box" class="dev_io_box_hidden">
+    <fieldset>
+        <legend class="block_caption">Яркость</legend>
+        <div class="dev_io_box_inn">
+            <p><input type="radio" name="dev_modeexled" onclick="ledModeExClick()">Половина</input></p>
+            <p><input type="radio" name="dev_modeexled" onclick="ledModeExClick()"checked>Полная</input></p>
+        </div>
+    </fieldset>
+</div>
+<div id="dev_modeextubefan_box" class="dev_io_box_hidden">
+    <fieldset>
+        <legend class="block_caption">Мощность</legend>
+        <div class="dev_io_box_inn">
+            <p><input type="radio" name="dev_modeextubefan" onclick="tubefanModeExClick()" checked>Низкая</input></p>
+            <p><input type="radio" name="dev_modeextubefan" onclick="tubefanModeExClick()">Высокая</input></p>
+        </div>
+    </fieldset>
+</div>
+<div id="dev_dnatcooling_box" class="dev_io_box_hidden">
+    <fieldset>
+        <legend class="block_caption">Охлаждение</legend>
+        <div class="dev_io_box_inn">
+            <p><button onclick="dnatStartCooling()">Запустить</button></p>
+            <p><button onclick="dnatStopCooling()">Остановить</button></p>
+            <p>Осталось <span id="dnat_cool_lost" class="data_value">0</span> сек.</p>
+        </div>
+    </fieldset>
+</div>
+<div id="dev_shedule_box" class="dev_io_box">
+    <fieldset>
+        <legend class="block_caption">Расписание</legend>
+        <div class="dev_io_box_inn">
+            <table margin="0" padding="0" cellpadding="0" cellspacing="0">
+                <tr valign="baseline">
+                    <td><p>Включение</p></td>
+                    <td>&nbsp</td>
+                    <td><input type="time" id="dev_shedule_start" value="00:00"></input></td>
+                </tr>
+                <tr valign="baseline">
+                    <td><p>Выключение</p></td>
+                    <td>&nbsp</td>
+                    <td><input type="time" id="dev_shedule_end" value="00:00"></input></td>
+                </tr>
+            </table>
+            <p align="right"><button onclick="devApplySheduleClick()">Применить</button></p>
+        </div>
+    </fieldset>
+</div>
+<div id="dev_watering_box" class="dev_io_box_hidden">
+    <fieldset>
+        <legend class="block_caption">Полив</legend>
+        <div class="dev_io_box_inn">
+            <div style="float:left; padding-right:10px; border-right:1px solid #aaaaaa"">
+                <table margin="0" padding="0" cellpadding="0px" cellspacing="0">
+                    <tr valign="baseline" style="border-bottom:1px solid #aaaaaa">
+                        <td style="border-bottom:1px solid #aaaaaa"><p align="right" style="padding-bottom:5px">Порция</p></td>
+                        <td style="border-bottom:1px solid #aaaaaa"><span style="padding:0px 10px 0px 10px"><input id="water_portion" type="number" style="width:80px" value="100" min="0" max="3000" step="100"></input></span></td>
+                        <td style="border-bottom:1px solid #aaaaaa">мл</td>
+                        <td style="border-bottom:1px solid #aaaaaa"><span style="padding-left:10px"><button onclick="waterPortionApplyClick()">Применить</button></span></td>
+                    </tr>
+                    <tr valign="baseline">
+                        <td><p align="right" style="padding-top:5px">Поливать</p></td>
+                        <td><span style="padding:0px 10px 0px 10px"><input id="water_itv_run" type="number" style="width:80px" value="2" min="0" max="30" step="1"></input></span></td>
+                        <td colspan="2">дней</td>
+                    </tr>
+                    <tr valign="baseline">
+                        <td><p align="right">через</p></td>
+                        <td><span style="padding:0px 10px 0px 10px"><input id="water_itv_sleep" type="number" style="width:80px" value="1" min="0" max="30" step="1"></input></span></td>
+                        <td colspan="2">дней</td>
+                    </tr>
+                    <tr valign="baseline">
+                        <td><p align="right" style="padding-bottom:0px">начинать с</p></td>
+                        <td colspan="2"><span style="padding:0px 10px 0px 10px"><input id="water_reference_date" type="date" style="width:120px" value="2015-09-28"></input></span></td>
+                        <td><span style="padding-left:10px"><button onclick="waterRunSleepItvApplyClick()">Применить</button></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div style="float:left; padding-left:10px">
+                <p style="border-bottom:1px solid #aaaaaa; padding-bottom:5px">Следующий полив: <span id="next_watering_date" class="data_value">-</span></p>
+                <p style="padding-top:5px">Принудительный полив:</p>
+                <p>
+                    <button onclick="forceWateringStart()">Начать</button>
+                    <span style="padding-left:20px">&nbsp</span>
+                    <button onclick="forceWateringStop()">Закончить</button>
+                </p>
+                <p style="padding-bottom:0px">Осталось<span id="water_lost" class="data_value" style="padding:0px 10px 0px 10px">0</span>мл</p>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<div id="dev_runsleep_box" class="dev_io_box">
+    <fieldset>
+        <legend class="block_caption">Интервал работы</legend>
+        <div class="dev_io_box_inn">
+            <div id="dev_runsleep_box_left" style="float:left; padding-right:10px">
+                <table margin="0" padding="0" cellpadding="0" cellspacing="0">
+                    <tr valign="baseline">
+                        <td><p>Работа</p></td>
+                        <td>&nbsp</td>
+                        <td><input type="number" id="run_itv" value="0" min="0" max="120" step="5" onchange="devCalcDutyRatio()"></input></td>
+                    </tr>
+                    <tr valign="baseline">
+                        <td><p>Сон</p></td>
+                        <td>&nbsp</td>
+                        <td><input type="number" id="sleep_itv" value="0" min="0" max="120" step="5" onchange="devCalcDutyRatio()"></input></td>
+                    </tr>
+                </table>
+                <p align="right"><button onclick="devApplyRunSleepClick()">Применить</button></p>
+            </div>
+            <div id="dev_runsleep_box_right" style="float:left; padding-left:10px; border-left:1px solid #aaaaaa">
+                <p>Коэфф. загрузки: <span id="run_sleep_coef" class="data_value">1.0</span></p>
+                <table margin="0" padding="0" cellpadding="0" cellspacing="0">
+                    <tr valign="baseline">
+                        <td><p><button id="inc_duty_ratio" name="runSleepCommands" onclick="devRunIncDutyRatioCommand()">Увел. коэфф.</button></p></td>
+                        <td>&nbsp&nbsp&nbsp</td>
+                        <td><p><button id="dec_duty_ratio" name="runSleepCommands" onclick="devRunDecDutyRatioCommand()">Умен. коэфф.</button></p></td>
+                    </tr>
+                    <tr valign="baseline">
+                        <td><p><button id="start_run" name="runSleepCommands" onclick="devRunStartWorkCommand()">Начать работу</button></p></td>
+                        <td>&nbsp&nbsp&nbsp</td>
+                        <td><p><button id="start_sleep" name="runSleepCommands" onclick="devRunStartSleepCommand()">Начать сон</button></p></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="dev_runsleep_box_bottom" style="clear:both;">
+                <p>Работа <span id="work_start">начнется</span><span id="work_finish" class="hidden">закончится</span> через <span id="work_dur" class="data_value">0</span> секунд</p>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<div id="dev_savetomem_box" style="clear:both;border-top:1px solid #aaaaaa;padding-top:10px;">
+    <p align="right"><button onclick="devSaveSettings()">Сохранить в память</button></p>
+</div>

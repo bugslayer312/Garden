@@ -1,0 +1,1514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <meta http-equiv="Content-Style-Type" content="text/css">
+                <title>Growbox</title>
+                <style type="text/css">
+                    html, body{
+                        margin: 0;
+                        padding: 0;
+                    }
+                h1{
+                    margin: 0;
+                    padding: 0;
+                }
+                #page-container{
+                    margin: 0;
+                }
+                #main-nav{
+                    height: 50px;
+                    font-size: 14px;
+                }
+                #main-nav a{
+                    text-decoration: none;
+                    color: #666666;
+                }
+                #main-nav a:hover{
+                    color: #db6d16;
+                }
+                #main-nav dl{
+                    margin:0;
+                    padding:0;
+                }
+                #main-nav dt{
+                    float: left;
+                    border: 1px solid #666666;
+                    margin: 8px;
+                    padding: 5px 10px;
+                    border-radius: 2px;
+                    background: #D3B988;
+                }
+                #growbox_time_div p{
+                    font-size:24px;
+                    margin:0px;
+                    padding:5px 10px 0px;
+                }
+                #header{
+                    clear: both;
+                    height: auto;
+                }
+                #sidebar{
+                    float: right;
+                    width: 30%;
+                    padding: 20px;
+                    line-height: 18px;
+                    font-size: 14px;
+                }
+                #sidebar a{
+                    text-decoration: none;
+                    color: #666666;
+                }
+                #sidebar a:hover{
+                    color: #B708E2;
+                }
+                #sidebar dl{
+                    margin:0;
+                    padding:0;
+                }
+                #sidebar dt{
+                    border: 1px solid #666666;
+                    margin: 12px 6px;
+                    padding: 5px 10px;
+                    border-radius: 2px;
+                    background: #BBA9C7;
+                    text-align: center;
+                    letter-spacing: 2px;
+                }
+                .sidebar_dt_active{
+                    border: 1px solid #ff0000;
+                    margin: 12px 6px;
+                    padding: 5px 10px;
+                    border-radius: 2px;
+                    background: #BBA9C7;
+                    text-align: center;
+                    letter-spacing: 2px;
+                }
+                #content{
+                    margin-right: 30%;
+                    padding: 10px 40px 10px 10px;
+                    line-height: 18px;
+                }
+                #content h2{
+                    margin: 0;
+                    padding: 0;
+                    padding-bottom: 6px;
+                    font-size:16px;
+                }
+                #content p{
+                    margin: 0;
+                    padding: 0;
+                    padding-bottom: 10px;
+                }
+                #footer{
+                    clear: both;
+                    font-family: Tahoma, Arial, Helvetica, Sans-serif;
+                    font-size: 10px;
+                    color: #c9c9c9;
+                    border-top: 1px solid #efefef;
+                }
+                body{
+                    font-family: Arial, Helvetica, Verdana, Sans-serif;
+                    font-size: 12px;
+                    color: #666666;
+                    background: #ffffff;
+                }
+                .hidden{
+                    display: none;
+                }
+                .dev_io_box{
+                    padding: 5px 10px 5px 0px;
+                    float:left;
+                }
+                .dev_io_box_hidden{
+                    padding: 5px 10px 5px 0px;
+                    float:left;
+                    display: none;
+                }
+                .dev_io_box_inn{
+                    margin: 5px;
+                    height: 130px;
+                    line-height: 25px;
+                }
+                .block_caption{
+                    font-weight: 700;
+                }
+                .data_value{
+                    color: #B434C5;
+                    font-size: 110%;
+                }
+                .main_box{
+                    padding: 5px 10px 5px 0px;
+                    width:100%;
+                }
+                .main_box_hidden{
+                    padding: 5px 10px 5px 0px;
+                    display: none;
+                }
+                .main_box_inn{
+                    margin: 5px;
+                    line-height: 15px;
+                }
+                .main_indent{
+                    text-indent: 20px;
+                }
+                .big_button{
+                    width: 60px;
+                    height: 30px;
+                    font-size: 16px;
+                    border-radius: 4px;
+                    margin: 0px 5px;
+                }
+                .main_senslink{
+                    text-indent: 20px;
+                }
+                </style>
+                <script>
+                    
+                    // Gauge
+                    eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('t W=v(f){W.2t.3T(A);A.B={Z:2u,19:1q,1h:1q,1J:U,1b:D,K:0,V:[\'0\',\'20\',\'40\',\'2A\',\'2B\',\'D\'],2r:10,2C:M,1E:U,2q:{2D:3,2E:2},2H:M,1c:{2j:10,2m:3y,2O:\'3v\'},J:{2P:\'#4h\',V:\'#31\',2r:\'#3k\',1J:\'#37\',1E:\'#37\',3e:\'#31\',1t:{2s:\'1e(3Y, 3d, 3d, 1)\',3c:\'1e(1Y, 5I, 5E, .9)\'}},1o:[{1n:20,1D:2A,1F:\'#3j\'},{1n:2A,1D:2B,1F:\'#36\'},{1n:2B,1D:D,1F:\'#5n\'}]};t g=0,1p=A,N=0,1S=0,1G=U;A.5d=v(a){N=f.1c?g:a;t b=(f.1b-f.K)/D;1S=a>f.1b?1S=f.1b+b:a<f.K?f.K-b:a;g=a;f.1c?3l():A.1g();C A};A.3m=v(a){N=g=a;A.1g();C A};A.4T=v(){g=N=1S=A.B.K;A.1g();C A};A.4R=v(){C g};A.13=v(){};v 2k(a,b){Q(t i 4P b){z(1H b[i]=="1W"&&!(4O.4y.2V.4p(b[i])===\'[1W 4n]\')&&i!=\'Z\'){z(1H a[i]!="1W"){a[i]={}}2k(a[i],b[i])}O{a[i]=b[i]}}};2k(A.B,f);A.B.K=1R(A.B.K);A.B.1b=1R(A.B.1b);f=A.B;N=g=f.K;z(!f.Z){4m 4j("4g 4d 4b 46 44 41 3Z 3W W 1W!");}t j=f.Z.5K?f.Z:2R.5v(f.Z),q=j.3u(\'2d\'),1i,1y,1A,14,17,u,1d;v 2M(){j.19=f.19;j.1h=f.1h;1i=j.4s(M);1d=1i.3u(\'2d\');1y=j.19;1A=j.1h;14=1y/2;17=1A/2;u=14<17?14:17;1i.2J=U;1d.3P(14,17);1d.G();q.3P(14,17);q.G()};2M();A.4Z=v(a){2k(A.B,a);2M();A.1g();C A};t k={4q:v(p){C p},4e:v(p){C E.1L(p,2)},4c:v(p){C E.1L(p,5)},3v:v(p){C 1-E.1O(E.5C(p))},5k:v(p){C 1-(v(p){Q(t a=0,b=1;1;a+=b,b/=2){z(p>=(7-4*a)/11){C-E.1L((11-6*a-11*p)/4,2)+E.1L(b,2)}}})(1-p)},4S:v(p){C 1-(v(p){t x=1.5;C E.1L(2,10*(p-1))*E.1T(20*E.1a*x/3*p)})(1-p)}};t l=2u;v 3S(d){t e=2v 3R;l=2x(v(){t a=2v 3R-e,1M=a/d.2m;z(1M>1){1M=1}t b=1H d.2g=="v"?d.2g:k[d.2g];t c=b(1M);d.3Q(c);z(1M==1){2b(l)}},d.2j||10)};v 3l(){l&&2b(l);t b=(1S-N),1n=N,29=f.1c;3S({2j:29.2j,2m:29.2m,2g:29.2O,3Q:v(a){N=1R(1n)+b*a;1p.1g()}})};q.5l="3O";A.1g=v(){z(!1i.2J){1d.3M(-14,-17,1y,1A);1d.G();t a=q;q=1d;3L();3K();3I();3H();3F();3D();3z();1i.2J=M;q=a;5G a}q.3M(-14,-17,1y,1A);q.G();q.4a(1i,-14,-17,1y,1A);z(!W.28){t b=2x(v(){z(!W.28){C}2b(b);2K();2L();z(!1G){1p.13&&1p.13();1G=M}},10)}O{2K();2L();z(!1G){1p.13&&1p.13();1G=M}}C A};v S(a){C a*E.1a/4J};v 1l(a,b,c){t d=q.4Y(0,0,0,c);d.1V(0,a);d.1V(1,b);C d};v 3L(){t a=u/D*5g,3x=u-a,2a=u/D*5q,5u=u-2a,1f=u/D*5z,5A=u-1f;3t=u/D*5F;q.G();z(f.2H){q.2o=3x;q.2n=\'1e(0, 0, 0, 0.5)\'}q.P();q.16(0,0,a,0,E.1a*2,M);q.L=1l(\'#42\',\'#43\',a);q.T();q.R();q.P();q.16(0,0,2a,0,E.1a*2,M);q.L=1l(\'#49\',\'#36\',2a);q.T();q.P();q.16(0,0,1f,0,E.1a*2,M);q.L=1l(\'#3j\',\'#3s\',1f);q.T();q.P();q.16(0,0,3t,0,E.1a*2,M);q.L=f.J.2P;q.T();q.G()};v 3H(){t r=u/D*2T;q.2e=2;q.2U=f.J.V;q.G();Q(t i=0;i<f.V.H;++i){t a=45+i*(1U/(f.V.H-1));q.1z(S(a));q.P();q.1K(0,r);q.F(0,r-u/D*15);q.1X();q.R();q.G()}z(f.2C){q.1z(S(2X));q.P();q.16(0,0,r,S(45),S(4N),U);q.1X();q.R();q.G()}};v 3I(){t r=u/D*2T;q.2e=1;q.2U=f.J.2r;q.G();t b=f.2r*(f.V.H-1);Q(t i=0;i<b;++i){t a=45+i*(1U/b);q.1z(S(a));q.P();q.1K(0,r);q.F(0,r-u/D*7.5);q.1X();q.R();q.G()}};v 3F(){t r=u/D*55;Q(t i=0;i<f.V.H;++i){t a=45+i*(1U/(f.V.H-1)),p=1w(r,S(a));q.1x=20*(u/1q)+"2i 2Y";q.L=f.J.3e;q.2e=0;q.2h="2f";q.27(f.V[i],p.x,p.y+3)}};v 3D(){z(!f.1J){C}q.G();q.1x=24*(u/1q)+"2i 2Y";q.L=f.J.1J;q.2h="2f";q.27(f.1J,0,-u/4.25);q.R()};v 3z(){z(!f.1E){C}q.G();q.1x=22*(u/1q)+"2i 2Y";q.L=f.J.1E;q.2h="2f";q.27(f.1E,0,u/3.25);q.R()};v 32(a){t b=f.2q.2E,34=f.2q.2D;a=1R(a);t n=(a<0);a=E.35(a);z(b>0){a=a.5t(b).2V().1j(\'.\');Q(t i=0,s=34-a[0].H;i<s;++i){a[0]=\'0\'+a[0]}a=(n?\'-\':\'\')+a[0]+\'.\'+a[1]}O{a=E.3O(a).2V();Q(t i=0,s=34-a.H;i<s;++i){a=\'0\'+a}a=(n?\'-\':\'\')+a}C a};v 1w(r,a){t x=0,y=r,1O=E.1O(a),1T=E.1T(a),X=x*1T-y*1O,Y=x*1O+y*1T;C{x:X,y:Y}};v 3K(){q.G();t a=u/D*2T;t b=a-u/D*15;Q(t i=0,s=f.1o.H;i<s;i++){t c=f.1o[i],39=(f.1b-f.K)/1U,1P=S(45+(c.1n-f.K)/39),1N=S(45+(c.1D-f.K)/39);q.P();q.1z(S(2X));q.16(0,0,a,1P,1N,U);q.R();q.G();t d=1w(b,1P),3a=1w(a,1P);q.1K(d.x,d.y);q.F(3a.x,3a.y);t e=1w(a,1N),3b=1w(b,1N);q.F(e.x,e.y);q.F(3b.x,3b.y);q.F(d.x,d.y);q.1C();q.L=c.1F;q.T();q.P();q.1z(S(2X));q.16(0,0,b,1P-0.2,1N+0.2,U);q.R();q.1C();q.L=f.J.2P;q.T();q.G()}};v 2L(){t a=u/D*12,1f=u/D*8,1u=u/D*3X,1r=u/D*20,2l=u/D*4,1B=u/D*2,38=v(){q.3f=2;q.3g=2;q.2o=10;q.2n=\'1e(5L, 3h, 3h, 0.45)\'};38();q.G();z(N<0){N=E.35(f.K-N)}O z(f.K>0){N-=f.K}O{N=E.35(f.K)+N}q.1z(S(45+N/((f.1b-f.K)/1U)));q.P();q.1K(-1B,-1r);q.F(-2l,0);q.F(-1,1u);q.F(1,1u);q.F(2l,0);q.F(1B,-1r);q.1C();q.L=1l(f.J.1t.2s,f.J.1t.3c,1u-1r);q.T();q.P();q.F(-0.5,1u);q.F(-1,1u);q.F(-2l,0);q.F(-1B,-1r);q.F(1B/2-2,-1r);q.1C();q.L=\'1e(1Y, 1Y, 1Y, 0.2)\';q.T();q.R();38();q.P();q.16(0,0,a,0,E.1a*2,M);q.L=1l(\'#3s\',\'#36\',a);q.T();q.R();q.P();q.16(0,0,1f,0,E.1a*2,M);q.L=1l("#47","#48",1f);q.T()};v 3i(x,y,w,h,r){q.P();q.1K(x+r,y);q.F(x+w-r,y);q.23(x+w,y,x+w,y+r);q.F(x+w,y+h-r);q.23(x+w,y+h,x+w-r,y+h);q.F(x+r,y+h);q.23(x,y+h,x,y+h-r);q.F(x,y+r);q.23(x,y,x+r,y);q.1C()};v 2K(){q.G();q.1x=40*(u/1q)+"2i 30";t a=32(g),2Z=q.4f(\'-\'+32(0)).19,y=u-u/D*33,x=0,2W=0.12*u;q.G();3i(-2Z/2-0.21*u,y-2W-0.4i*u,2Z+0.3n*u,2W+0.4k*u,0.21*u);t b=q.4l(x,y-0.12*u-0.21*u+(0.12*u+0.3o*u)/2,u/10,x,y-0.12*u-0.21*u+(0.12*u+0.3o*u)/2,u/5);b.1V(0,"#37");b.1V(1,"#3k");q.2U=b;q.2e=0.3n*u;q.1X();q.2o=0.3p*u;q.2n=\'1e(0, 0, 0, 1)\';q.L="#4o";q.T();q.R();q.3f=0.3q*u;q.3g=0.3q*u;q.2o=0.3p*u;q.2n=\'1e(0, 0, 0, 0.3)\';q.L="#31";q.2h="2f";q.27(a,-x,y);q.R()}};W.28=U;(v(){t d=2R,h=d.3r(\'4r\')[0],2S=4t.4u.4v().4w(\'4x\')!=-1,2Q=\'4z://4A-4B.4C/4D/4E/4F-7-4G.\'+(2S?\'4H\':\'4I\'),1I="@1x-4K {"+"1x-4L: \'30\';"+"4M: 2Q(\'"+2Q+"\');"+"}",1s,r=d.3w(\'1v\');r.2N=\'1I/4Q\';z(2S){h.2p(r);1s=r.2I;1s.3A=1I}O{4U{r.2p(d.4V(1I))}4W(e){r.3A=1I}h.2p(r);1s=r.2I?r.2I:(r.4X||d.3B[d.3B.H-1])}t b=2x(v(){z(!d.3C){C}2b(b);t a=d.3w(\'50\');a.1v.51=\'30\';a.1v.52=\'53\';a.1v.1h=a.1v.19=0;a.1v.54=\'56\';a.57=\'.\';d.3C.2p(a);58(v(){W.28=M;a.59.5a(a)},3y)},1)})();W.2t=[];W.2t.5b=v(a){z(1H(a)==\'5c\'){Q(t i=0,s=A.H;i<s;i++){z(A[i].B.Z.18(\'5e\')==a){C A[i]}}}O z(1H(a)==\'5f\'){C A[a]}O{C 2u}};v 3E(a){z(2G.3G){2G.3G(\'5h\',a,U)}O{2G.5i(\'5j\',a)}}3E(v(){v 2F(a){t b=a[0];Q(t i=1,s=a.H;i<s;i++){b+=a[i].1Z(0,1).5m()+a[i].1Z(1,a[i].H-1)}C b};v 3J(a){C a.5o(/^\\s+|\\s+$/g,\'\')};t c=2R.3r(\'5p\');Q(t i=0,s=c.H;i<s;i++){z(c[i].18(\'1k-2N\')==\'5r-5s\'){t d=c[i],B={},1m,w=2c(d.18(\'19\')),h=2c(d.18(\'1h\'));B.Z=d;z(w){B.19=w}z(h){B.1h=h}Q(t e=0,1s=d.3N.H;e<1s;e++){1m=d.3N.5w(e).5x;z(1m!=\'1k-2N\'&&1m.1Z(0,5)==\'1k-\'){t f=1m.1Z(5,1m.H-5).5y().1j(\'-\'),I=d.18(1m);z(!I){2z}5B(f[0]){2y\'J\':{z(f[1]){z(!B.J){B.J={}}z(f[1]==\'1t\'){t k=I.1j(/\\s+/);z(k[0]&&k[1]){B.J.1t={2s:k[0],3c:k[1]}}O{B.J.1t=I}}O{f.5D();B.J[2F(f)]=I}}26}2y\'1o\':{z(!B.1o){B.1o=[]}2w=I.1j(\',\');Q(t j=0,l=2w.H;j<l;j++){t m=3J(2w[j]).1j(/\\s+/),1Q={};z(m[0]&&m[0]!=\'\'){1Q.1n=m[0]}z(m[1]&&m[1]!=\'\'){1Q.1D=m[1]}z(m[2]&&m[2]!=\'\'){1Q.1F=m[2]}B.1o.3T(1Q)}26}2y\'1c\':{z(f[1]){z(!B.1c){B.1c={}}z(f[1]==\'2O\'&&/^\\s*v\\s*\\(/.5H(I)){I=3U(\'(\'+I+\')\')}B.1c[f[1]]=I}26}5J:{t n=2F(f);z(n==\'13\'){2z}z(n==\'V\'){I=I.1j(/\\s+/)}O z(n==\'2C\'||n==\'2H\'){I=I==\'M\'?M:U}O z(n==\'2q\'){t o=I.1j(\'.\');z(o.H==2){I={2D:2c(o[0]),2E:2c(o[1])}}O{2z}}B[n]=I;26}}}}t g=2v W(B);z(d.18(\'1k-3V\')){g.3m(1R(d.18(\'1k-3V\')))}z(d.18(\'1k-13\')){g.13=v(){3U(A.B.Z.18(\'1k-13\'))}}g.1g()}}});',62,358,'||||||||||||||||||||||||||ctx|||var|max|function||||if|this|config|return|100|Math|lineTo|save|length|attrValue|colors|minValue|fillStyle|true|fromValue|else|beginPath|for|restore|radians|fill|false|majorTicks|Gauge|||renderTo||||onready|CX||arc|CY|getAttribute|width|PI|maxValue|animation|cctx|rgba|r2|draw|height|cache|split|data|lgrad|prop|from|highlights|self|200|rOut|ss|needle|rIn|style|rpoint|font|CW|rotate|CH|pad2|closePath|to|units|color|imready|typeof|text|title|moveTo|pow|progress|ea|sin|sa|hlCfg|parseFloat|toValue|cos|270|addColorStop|object|stroke|255|substr||025||quadraticCurveTo|||break|fillText|initialized|cfg|r1|clearInterval|parseInt||lineWidth|center|delta|textAlign|px|delay|applyRecursive|pad1|duration|shadowColor|shadowBlur|appendChild|valueFormat|minorTicks|start|Collection|null|new|hls|setInterval|case|continue|60|80|strokeTicks|int|dec|toCamelCase|window|glow|styleSheet|i8d|drawValueBox|drawNeedle|baseInit|type|fn|plate|url|document|ie|81|strokeStyle|toString|th|90|Arial|tw|Led|444|padValue||cint|abs|ccc|888|shad|vd|pe|pe1|end|128|numbers|shadowOffsetX|shadowOffsetY|143|roundRect|eee|666|animate|setRawValue|05|045|012|004|getElementsByTagName|f0f0f0|r3|getContext|cycle|createElement|d0|250|drawUnits|cssText|styleSheets|body|drawTitle|domReady|drawNumbers|addEventListener|drawMajorTicks|drawMinorTicks|trim|drawHighlights|drawPlate|clearRect|attributes|round|translate|step|Date|_animate|push|eval|value|the|77|240|creating||when|ddd|aaa|specified||not|e8e8e8|f5f5f5|fafafa|drawImage|was|quint|element|quad|measureText|Canvas|fff|04|Error|07|createRadialGradient|throw|Array|babab2|call|linear|head|cloneNode|navigator|userAgent|toLocaleLowerCase|indexOf|msie|prototype|http|smart|ip|net|styles|fonts|digital|mono|eot|ttf|180|face|family|src|315|Object|in|css|getValue|elastic|clear|try|createTextNode|catch|sheet|createLinearGradient|updateConfig|div|fontFamily|position|absolute|overflow||hidden|innerHTML|setTimeout|parentNode|removeChild|get|string|setValue|id|number|93|DOMContentLoaded|attachEvent|onload|bounce|lineCap|toUpperCase|999|replace|canvas|91|canv|gauge|toFixed|d1|getElementById|item|nodeName|toLowerCase|88|d2|switch|acos|shift|122|85|delete|test|160|default|tagName|188'.split('|'),0,{}))
+                    // end Gauge
+                    
+                    var debug = false;
+                    
+                    var page = 0;
+                    var sys_temp = 0;
+                    var dev_temp = 0;
+                    var humidity = 0;
+                    var soil = 0;
+                    var curr_dev_id = 1;
+                    
+                    var growbox_date = new Date();
+                    var growbox_startdate = new Date();
+                    
+                    // timers
+                    var checkStartInSecTimer = 0;
+                    var waterLostTimer = 0;
+                    var checkDnatCoolLostTimer = 0;
+                    
+                    var systemUptimeTimer = 0;
+                    var mainSummaryUpdateTempTimer = 0;
+                    var mainControlTempSensorsUpdateTempTimer = 0;
+                    var mainControlAutolinkingUpdateTimer = 0;
+                    var gsmTimer = 0;
+                    
+                    function LoadPage()
+                    {
+                        console.log("debug="+debug);
+                        ajaxGetSystemTime();
+                        ajaxLoadPageContent(0);
+                        setInterval("ajaxLoadSysSensorValues()", 10000);
+                        setInterval("updateGrowboxTime()", 1000);
+                    }
+                    function updateGrowboxTime()
+                    {
+                        var options = {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            second: '2-digit'
+                        };
+                        document.getElementById("growbox_time").innerHTML = growbox_date.toLocaleString("ru", options);
+                        growbox_date.setSeconds(growbox_date.getSeconds() + 1);
+                    }
+                    function stopTimers()
+                    {
+                        if(page == 0)
+                        {
+                            clearInterval(systemUptimeTimer);
+                            clearInterval(mainSummaryUpdateTempTimer);
+                            clearInterval(mainControlTempSensorsUpdateTempTimer);
+                            clearInterval(mainControlAutolinkingUpdateTimer);
+                        }
+                        else if(page == 1)
+                        {
+                            clearInterval(checkStartInSecTimer);
+                            clearInterval(waterLostTimer);
+                            clearInterval(checkDnatCoolLostTimer);
+                        }
+                        else    // page == 2
+                        {
+                            
+                        }
+                    }
+                    function LoadMainPageContent()
+                    {
+                        if(page == 0)
+                            return;
+                        stopTimers();
+                        ajaxLoadPageContent(0);
+                    }
+                    function LoadDevicesPageContent()
+                    {
+                        if(page == 1)
+                            return;
+                        stopTimers();
+                        ajaxLoadPageContent(1);
+                    }
+                    function LoadStatPageContent()
+                    {
+                        if(page == 2)
+                            return;
+                        stopTimers();
+                        ajaxLoadPageContent(2);
+                    }
+                
+                // AJAX
+                function extractFromCDATA(s)
+                {
+                    var start = s.indexOf("<![CDATA[");
+                    if(start < 0)
+                        return s;
+                    var end = s.indexOf("]]>", s.length-3);
+                    if(end < 0)
+                        return s;
+                    return s.substring(start, end);
+                }
+                function ajaxGetSystemTime()
+                {
+                    var params = "&nocache=" + Math.random() * 1000000;
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function()
+                    {
+                        if(this.readyState == 4){
+                            if(this.status == 200){
+                                if(this.responseText != null){
+                                    growbox_date.setTime(new Date(this.responseText));
+                                }
+                            }
+                        }
+                    }
+                    console.log("ajax_getsystemtime" + params);
+                    if(debug)
+                        return;
+                    request.open("GET", "ajax_getsystemtime" + params, true);
+                    request.send(null);
+                }
+                function ajaxLoadPageContent(pg)
+                {
+                    var params = "&page=" + pg + "&nocache=" + Math.random() * 1000000;
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function()
+                    {
+                        if(this.readyState == 4){
+                            if(this.status == 200){
+                                console.log("onreadystatechange");
+                                if(this.responseXML != null){
+                                    console.log("this.responseXml != null");
+                                    var sb = this.responseXML.getElementsByTagName("sidebar");
+                                    if(sb != null && sb.length > 0){
+                                        console.log("sb != null && sb.length > 0");
+                                        document.getElementById("sidebar").innerHTML = extractFromCDATA(sb[0].childNodes[0].nodeValue)
+                                    }
+                                    var con = this.responseXML.getElementsByTagName("content");
+                                    if(con != null && con.length > 0){
+                                        console.log("con != null && con.length > 0");
+                                        document.getElementById("content").innerHTML = extractFromCDATA(con[0].childNodes[0].nodeValue)
+                                    }
+                                    var p = this.responseXML.getElementsByTagName("page");
+                                    if(p != null && p.length > 0){
+                                        console.log("p != null && p.length > 0");
+                                        page = p[0].childNodes[0].nodeValue;
+                                    }
+                                    if(page == 0){
+                                        mainSideBarClick(0);
+                                    }
+                                    else if(page == 1){
+                                        deviceSideBarClick(1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    console.log("ajax_loadpagecontent" + params);
+                    if(debug)
+                        return;
+                    request.open("GET", "ajax_loadpagecontent" + params, true);
+                    request.send(null);
+                }
+                function ajaxLoadSysSensorValues()
+                {
+                    var nocache = "&nocache=" + Math.random() * 1000000;
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function()
+                    {
+                        if(this.readyState == 4){
+                            if(this.status == 200){
+                                if(this.responseXML != null){
+                                    sys_temp = this.responseXML.getElementsByTagName("systemp")[0].childNodes[0].nodeValue;
+                                    dev_temp = this.responseXML.getElementsByTagName("devtemp")[0].childNodes[0].nodeValue;
+                                    humidity = this.responseXML.getElementsByTagName("humidity")[0].childNodes[0].nodeValue;
+                                    soil = this.responseXML.getElementsByTagName("soil")[0].childNodes[0].nodeValue;
+                                }
+                            }
+                        }
+                    }
+                    console.log("ajax_loadsyssensorvalues" + nocache);
+                    if(debug)
+                        return;
+                    request.open("GET", "ajax_loadsyssensorvalues" + nocache, true);
+                    request.send(null);
+                }
+                
+                var dev_type = "unknown";
+                
+                // getDeviceSettings flag
+                var DS_ALL = 4095;
+                var DS_TEMP = 1;
+                var DS_CONNECTED = 2;
+                var DS_MODE = 4;
+                var DS_MODEEX = 8;
+                var DS_SHEDULE = 16;
+                var DS_RUNSLEEP = 32;
+                var DS_STARTINSEC = 64;
+                var DS_WATERPORTION = 128;
+                var DS_WATERLOST = 256;
+                var DS_DNATCOOLLOST = 512;
+                var DS_WATERLOST_UPDATE = 4096;
+                var DS_DNATCOOLLOST_UPDATE = 8192;
+                var startWithInDecreased = false;
+                var dnatCoolLostDecreased = false;
+                function ajaxLoadDeviceSettings(d_id, inputs)
+                {
+                    var params = "&dev=" + d_id + inputs + "&nocache=" + Math.random() * 1000000;
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function()
+                    {
+                        if(this.readyState == 4){
+                            if(this.status == 200){
+                                if(this.responseXML != null){
+                                    applyResponseXMLLoadDeviceSettings(this.responseXML);
+                                }
+                            }
+                        }
+                    }
+                    console.log("ajax_loaddevicesettings" + params);
+                    if(debug)
+                        return;
+                    request.open("GET", "ajax_loaddevicesettings" + params, true);
+                    request.send(null);
+                }
+                function getTimeInFormat(tm)
+                {
+                    var pos = tm.indexOf(":");
+                    var h = 0;
+                    var m = 0;
+                    if(pos > 0)
+                        h = Number(tm.substring(0, pos));
+                    if(pos < tm.length-1)
+                        m = Number(tm.substring(pos+1, tm.length));
+                    return (h < 10 ? ("0" + h) : h) + ":" + (m < 10 ? ("0" + m) : m);
+                }
+                function getInputTimeFormat(date)
+                {
+                    var h = date.getHours();
+                    var m = date.getMinutes();
+                    return (h < 10 ? "0" : "") + h + ":" + (m < 10 ? "0" : "") + m;
+                }
+                function getInputDateFormat(date)
+                {
+                    var y = date.getFullYear();
+                    var m = date.getMonth();
+                    var d = date.getDate();
+                    return "" + y + "-" + (m < 10 ? "0" : "") + m + "-" + (d < 10 ? "0" : "") + d;
+                }
+                function applyResponseXMLLoadDeviceSettings(xml)
+                {
+                    var nodes = xml.getElementsByTagName("id");
+                    if(nodes != null & nodes.length > 0)
+                    {
+                        curr_dev_id = nodes[0].childNodes[0].nodeValue;
+                        document.getElementById("dev_id").innerHTML = curr_dev_id;
+                    }
+                    nodes = xml.getElementsByTagName("name");
+                    if(nodes != null && nodes.length > 0)
+                    {
+                        document.getElementById("dev_name").innerHTML = nodes[0].childNodes[0].nodeValue;
+                    }
+                    dev_type = "unknown";
+                    nodes = xml.getElementsByTagName("type");
+                    if(nodes != null && nodes.length > 0)
+                    {
+                        dev_type = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : "unknown";
+                    }
+                    document.getElementById("dev_modeexled_box").style.display = (dev_type == "led" ? "inline" : "none");
+                    document.getElementById("dev_modeextubefan_box").style.display = (dev_type == "tubefan" ? "inline" : "none");
+                    //var runSleepButtons = document.getElementsByName("runSleepCommands");
+                    //for(i=0;i<runSleepButtons.length;i++)
+                    //{
+                    //    runSleepButtons[i].disabled = (dev_type != "tubefan");
+                    //}
+                    document.getElementById("dev_watering_box").style.display = (dev_type == "waterPump" ? "inline" : "none");
+                    document.getElementById("dev_runsleep_box").style.display = (dev_type == "waterPump" ? "none" : "inline");
+                    document.getElementById("dev_dnatcooling_box").style.display = (dev_type == "dnat" ? "inline" : "none");
+                    var flag = DS_ALL;
+                    nodes = xml.getElementsByTagName("flag");
+                    if(nodes != null && nodes.length > 0)
+                    {
+                        flag = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : 0;
+                    }
+                    if((flag & DS_TEMP) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("temp");
+                        if(nodes != null && nodes.length > 0)
+                        {
+                            var tmp = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue + "" : "";
+                            if(tmp.length == 0)
+                            tmp = "-";
+                            document.getElementById("dev_temp").innerHTML = tmp;
+                        }
+                    }
+                    if((flag & DS_CONNECTED) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("connected");
+                        if(nodes != null && nodes.length > 0)
+                        {
+                            var tmp = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : 0;
+                            document.getElementById("dev_con").checked = (tmp != 0);
+                        }
+                    }
+                    if((flag & DS_MODE) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("mode");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            var mode = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : "off";
+                            document.getElementsByName("dev_mode")[mode == "off" ? 0 : (mode == "on" ? 2 : 1)].checked = true;
+                        }
+                    }
+                    if((flag & DS_MODEEX) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("modeex");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            if(dev_type == "led")
+                            {
+                                var mode = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : "ledfull";
+                                document.getElementsByName("dev_modeexled")[mode == "ledhalf" ? 0 : 1].checked = true;
+                            }
+                            else if(dev_type == "tubefan")
+                            {
+                                var mode = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : "tubelow";
+                                document.getElementsByName("dev_modeextubefan")[mode == "tubehigh" ? 1 : 0].checked = true;
+                            }
+                        }
+                    }
+                    if((flag & DS_SHEDULE) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("shedulestart");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            document.getElementById("dev_shedule_start").value = getTimeInFormat(nodes[0].childNodes[0].nodeValue);
+                        }
+                        nodes = xml.getElementsByTagName("sheduleend");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            document.getElementById("dev_shedule_end").value = getTimeInFormat(nodes[0].childNodes[0].nodeValue);
+                        }
+                    }
+                    if((flag & DS_RUNSLEEP) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("runsleepitv");
+                        var bWat = (dev_type == "waterPump");
+                        if(nodes != null && nodes.length > 0)
+                        {
+                            var tmpRun = 0;
+                            var tmpSleep = 0;
+                            if(nodes[0].childNodes.length > 0){
+                                var tmpStr = nodes[0].childNodes[0].nodeValue;
+                                var pos = tmpStr.indexOf(":");
+                                if(pos > 0 && pos < tmpStr.length-1){
+                                    tmpRun = Number(tmpStr.substring(0, pos));
+                                    tmpSleep = Number(tmpStr.substring(pos+1, tmpStr.length));
+                                }
+                            }
+                            document.getElementById(bWat ? "water_itv_run" : "run_itv").value = tmpRun;
+                            document.getElementById(bWat ? "water_itv_sleep" : "sleep_itv").value = tmpSleep;
+                        }
+                        if(bWat)
+                        {
+                            nodes = xml.getElementsByTagName("waterreferencedate");
+                            if(nodes != null && nodes.length > 0)
+                            {
+                                var tmp = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : "";
+                                document.getElementById("water_reference_date").value = tmp;
+                            }
+                            nodes = xml.getElementsByTagName("nextwateringdate");
+                            if(nodes != null && nodes.length > 0)
+                            {
+                                var tmp = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : "-";
+                                document.getElementById("next_watering_date").innerHTML = tmp;
+                            }
+                        }
+                        else
+                        {
+                            devCalcDutyRatio();
+                        }
+                    }
+                    if((flag & DS_STARTINSEC) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("startinsec");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            var val = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : 0;
+                            document.getElementById("work_start").style.display = (val < 0 ? "none" : "inline");
+                            document.getElementById("work_finish").style.display = (val < 0 ? "inline" : "none");
+                            document.getElementById("work_dur").innerHTML = (val < 0 ? -val : val);
+                        }
+                        clearInterval(checkStartInSecTimer);
+                        checkStartInSecTimer = setInterval("checkStartInSec()", 1000);
+                    }
+                    if((flag & DS_WATERPORTION) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("waterportion");
+                        if(nodes != null && nodes.length > 0)
+                        {
+                            var val = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : 0;
+                            document.getElementById("water_portion").value = val;
+                        }
+                    }
+                    if((flag & DS_WATERLOST) > 0)
+                    {
+                        var val = 0;
+                        nodes = xml.getElementsByTagName("waterlost");
+                        if(nodes != null && nodes.length > 0)
+                        {
+                            var val = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : 0;
+                        }
+                        document.getElementById("water_lost").innerHTML = val;
+                        if(((flag & DS_WATERLOST_UPDATE) == 0) || val == 0)
+                        {
+                            clearTimeout(waterLostTimer);
+                            if(val > 0)
+                            {
+                                waterLostTimer = setInterval("checkWaterLost()", 1000);
+                            }
+                        }
+                    }
+                    if((flag & DS_DNATCOOLLOST) > 0)
+                    {
+                        var val = 0;
+                        nodes = xml.getElementsByTagName("dnatcoollost");
+                        if(nodes != null && nodes.length > 0)
+                        {
+                            var val = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : 0;
+                        }
+                        document.getElementById("dnat_cool_lost").innerHTML = val;
+                        if(((flag & DS_DNATCOOLLOST_UPDATE) == 0) || val == 0)
+                        {
+                            clearInterval(checkDnatCoolLostTimer);
+                            if(val > 0)
+                            {
+                                checkDnatCoolLostTimer = setInterval("checkDnatCoolLost()", 1000);
+                            }
+                        }
+                    }
+                    nodes = xml.getElementsByTagName("message");
+                    if(nodes != null & nodes.length > 0)
+                    {
+                        var val = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : "";
+                        if(val.length <= 0)
+                        return;
+                        console.log("ajax_loaddevicesettings response message: " + val);
+                    }
+                }
+                function test_devices(d_id)
+                {
+                    var xml_txt = "<?xml version = \"1.0\" ?><data>"+
+                    "<id>" + d_id + "</id>" +
+                    "<name>" + "dev no " + d_id + "</name>" +
+                    "<temp></temp><type>led</type><flag>" + DS_ALL + "</flag><connected>1</connected><mode>on</mode>" +
+                    "<modeex>ledhalf</modeex><shedulestart>8:30</shedulestart><sheduleend>1:30</sheduleend>" +
+                    "<runitv>20</runitv><sleepitv>10</sleepitv><startinsec>0</startinsec><message>test message</message></data>";
+                    var par = new DOMParser();
+                    var oDom = par.parseFromString(xml_txt, "text/xml");
+                    applyResponseXMLLoadDeviceSettings(oDom);
+                }
+                function ajaxLoadMainSummary(inputs)
+                {
+                    var params = inputs + "&nocache=" + Math.random() * 1000000;
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function()
+                    {
+                        if(this.readyState == 4){
+                            if(this.status == 200){
+                                if(this.responseXML != null){
+                                    applyResponseXMLLoadMainSummary(this.responseXML);
+                                }
+                            }
+                        }
+                    }
+                    console.log("ajax_loadmainsummary" + params);
+                    if(debug)
+                        return;
+                    request.open("GET", "ajax_loadmainsummary" + params, true);
+                    request.send(null);
+                }
+                // main summary flags
+                var MS_ALL = 4095;
+                var MS_DATES = 1;
+                var MS_CONNECTED = 2;
+                var MS_CONNECTEDTMP = 4;
+                var MS_CONNECTEDTMP_UPDATE = 4096;
+                function applyResponseXMLLoadMainSummary(xml)
+                {
+                    var flag = 0;
+                    var nodes = xml.getElementsByTagName("flag");
+                    if(nodes != null && nodes.length > 0)
+                    {
+                        flag = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : 0;
+                    }
+                    if((flag & MS_DATES) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("curdate");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            growbox_date.setTime(new Date(nodes[0].childNodes[0].nodeValue));
+                        }
+                        nodes = xml.getElementsByTagName("startdate");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            growbox_startdate.setTime(new Date(nodes[0].childNodes[0].nodeValue));
+                        }
+                        updateMainSummaryDateFields();
+                    }
+                    if((flag & (MS_CONNECTED|MS_CONNECTEDTMP)) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("main_dev_con");
+                        for(i=0;i<nodes.length;i++)
+                        {
+                            var id = nodes[i].getAttribute("id");
+                            if((flag & MS_CONNECTED) > 0)
+                            {
+                                document.getElementById("main_dev_con" + id).style.display = "block";
+                                document.getElementById("main_dev_con_name" + id).innerHTML = nodes[i].childNodes[0].nodeValue;
+                            }
+                            var node = document.getElementById("main_dev_con_tmp" + id);
+                            if(node != null)
+                            {
+                                node.innerHTML = (nodes[i].hasAttribute("temp") ? nodes[i].getAttribute("temp") : "-");
+                            }
+                        }
+                    }
+                    if((flag & MS_CONNECTEDTMP) > 0)
+                    {
+                        if((flag & MS_CONNECTEDTMP_UPDATE) == 0)
+                        {
+                            clearInterval(mainSummaryUpdateTempTimer);
+                            mainSummaryUpdateTempTimer = setInterval("mainSummaryUpdateTemp()", 10000);
+                        }
+                    }
+                }
+                // main control flags
+                var MC_ALL = 65535;
+                var MC_STEALTH = 1;
+                var MC_DATE = 2;
+                var MC_TIME = 4;
+                var MC_DEVICES_TEMP_CONTROL = 8;
+                var MC_SYSTEM_TEMP_CONTROL = 16;
+                var MC_TEMPSENSORS = 32;
+                var MC_TEMPSENSORS_LINKS = 64;
+                var MC_TEMPSENSORS_TEMP = 128;
+                var MC_AUTOLINKING = 256;
+                var MC_AUTOSWITCHON = 512;
+                var MC_AUTOSWITCHON_ITV = 1024;
+                var MC_AUTORESET = 2048;
+                var MC_AUTORESET_TIME = 4096;
+                var MC_TEMPSENSORS_UPDATE_TEMP = 65536;
+                var MC_AUTOLINKING_UPDATE = 131072;
+                var autolinking = false;
+                function ajaxLoadMainControl(inputs)
+                {
+                    var params = inputs + "&nocache=" + Math.random() * 1000000;
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function()
+                    {
+                        if(this.readyState == 4){
+                            if(this.status == 200){
+                                if(this.responseXML != null){
+                                    applyResponseXMLLoadMainControl(this.responseXML);
+                                }
+                            }
+                        }
+                    }
+                    console.log("ajax_loadmaincontrol" + params);
+                    if(debug)
+                        return;
+                    request.open("GET", "ajax_loadmaincontrol" + params, true);
+                    request.send(null);
+                }
+                function applyResponseXMLLoadMainControl(xml)
+                {
+                    var flag = 0;
+                    var nodes = xml.getElementsByTagName("flag");
+                    if(nodes != null && nodes.length > 0)
+                    {
+                        flag = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : 0;
+                    }
+                    if((flag & MC_STEALTH) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("stealth");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            var val = nodes[0].childNodes[0].nodeValue;
+                            document.getElementById("stealthon").disabled = (val == 1);
+                            document.getElementById("stealthoff").disabled = (val != 1);
+                        }
+                    }
+                    if((flag & (MC_DATE|MC_TIME)) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("date");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            var dt = new Date(nodes[0].childNodes[0].nodeValue);
+                            if((flag & MC_DATE) == 0)
+                            {
+                                dt.setFullYear(growbox_date.getFullYear());
+                                dt.setMonth(growbox_date.getMonth());
+                                dt.setDate(growbox_date.getDate());
+                            }
+                            if((flag & MC_TIME) == 0)
+                            {
+                                dt.setHours(growbox_date.getHours());
+                                dt.setMinutes(growbox_date.getMinutes());
+                                dt.setSeconds(growbox_date.getSeconds());
+                            }
+                            growbox_date.setTime(dt.getTime());
+                        }
+                    }
+                    document.getElementById("main_ctrl_date").value = getInputDateFormat(growbox_date);
+                    document.getElementById("main_ctrl_time").value = getInputTimeFormat(growbox_date);
+                    if((flag & MC_DEVICES_TEMP_CONTROL) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("devwarntemp");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            document.getElementById("dev_warn_temp").value = nodes[0].childNodes[0].nodeValue;
+                        }
+                        nodes = xml.getElementsByTagName("devextremetemp");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            document.getElementById("dev_extreme_temp").value = nodes[0].childNodes[0].nodeValue;
+                        }
+                        nodes = xml.getElementsByTagName("devoverheattemp");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            document.getElementById("dev_overheat_temp").value = nodes[0].childNodes[0].nodeValue;
+                        }
+                        nodes = xml.getElementsByTagName("devshutdowntemp");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            document.getElementById("dev_shutdown_temp").value = nodes[0].childNodes[0].nodeValue;
+                        }
+                    }
+                    if((flag & MC_SYSTEM_TEMP_CONTROL) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("syswarntemp");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            document.getElementById("sys_warn_temp").value = nodes[0].childNodes[0].nodeValue;
+                        }
+                        nodes = xml.getElementsByTagName("sysshutdowntemp");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            document.getElementById("sys_shutdown_temp").value = nodes[0].childNodes[0].nodeValue;
+                        }
+                        nodes = xml.getElementsByTagName("sysmaxhum");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            document.getElementById("sys_max_hum").value = nodes[0].childNodes[0].nodeValue;
+                        }
+                    }
+                    if((flag & (MC_TEMPSENSORS|MC_TEMPSENSORS_LINKS|MC_TEMPSENSORS_TEMP)) > 0)
+                    {
+                        var xml_link_nodes = xml.getElementsByTagName("tempsensorlink");
+                        if((flag & MC_TEMPSENSORS) > 0)
+                        {
+                            var nodes = document.getElementsByName("sens_link");
+                            for(i=0;i<nodes.length;i++)
+                            {
+                                nodes[i].style.display = "none";
+                            }
+                        }
+                        for(i=0;i < xml_link_nodes.length;i++)
+                        {
+                            var idx = xml_link_nodes[i].getAttribute("idx");
+                            if((flag & MC_TEMPSENSORS) > 0)
+                            {
+                                document.getElementById("sens_link" + idx).style.display = "block";
+                            }
+                            if((flag & MC_TEMPSENSORS_LINKS) > 0)
+                            {
+                                var opt_nodes = document.getElementById("sens_dev" + idx).getElementsByTagName("option");
+                                var dev_id = xml_link_nodes[i].childNodes[0].nodeValue;
+                                for(j=0;j < opt_nodes.length;j++)
+                                {
+                                    if(opt_nodes[j].value == dev_id)
+                                    {
+                                        opt_nodes[j].selected = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if((flag & MC_TEMPSENSORS_TEMP) > 0)
+                            {
+                                document.getElementById("sens_link_temp" + idx).innerHTML = xml_link_nodes[i].getAttribute("tmp");
+                            }
+                        }
+                    }
+                    if((flag & MC_AUTOLINKING) > 0)
+                    {
+                        autolinking = false;
+                        nodes = xml.getElementsByTagName("autolinking");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            autolinking = (nodes[0].childNodes[0].nodeValue == 1);
+                        }
+                        var link_nodes = document.getElementsByName("sens_link");
+                        for(i=0;i<link_nodes.length;i++)
+                        {
+                            link_nodes[i].getElementsByTagName("button")[0].disabled = autolinking;
+                            link_nodes[i].getElementsByTagName("select")[0].disabled = autolinking;
+                        }
+                        document.getElementById("auto_linking_state").innerHTML = (autolinking ? "в процессе" : "готово");
+                        document.getElementById("auto_linking_btn").disabled = autolinking;
+                        document.getElementById("auto_linking_btn_stop").disabled = !autolinking;
+                        if(!autolinking || ((flag & MC_AUTOLINKING_UPDATE) == 0))
+                        {
+                            clearInterval(mainControlAutolinkingUpdateTimer);
+                            if(autolinking)
+                                mainControlAutolinkingUpdateTimer = setInterval("mainControlAutolinkingUpdate()", 30000);
+                        }
+                    }
+                    if((flag & MC_TEMPSENSORS_TEMP) > 0)
+                    {
+                        if((flag & MC_TEMPSENSORS_UPDATE_TEMP) == 0)
+                        {
+                            clearInterval(mainControlTempSensorsUpdateTempTimer);
+                            mainControlTempSensorsUpdateTempTimer = setInterval("mainControlTempSensorsUpdateTemp()", 10000);
+                        }
+                    }
+                    if((flag & MC_AUTOSWITCHON) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("autoswitchon");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            var ch = (nodes[0].childNodes[0].nodeValue == 1);
+                            document.getElementById("autoswitchon").checked = ch;
+                            autoSwitchDependentsUpdate(!ch);
+                        }
+                    }
+                    if((flag & MC_AUTOSWITCHON_ITV) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("autoswitchonitv");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            document.getElementById("autoswitchonitv").value = nodes[0].childNodes[0].nodeValue;
+                        }
+                    }
+                    if((flag & MC_AUTORESET) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("autoreset");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            var ch = (nodes[0].childNodes[0].nodeValue == 1);
+                            document.getElementById("sysautoreset").checked = ch;
+                            sysAutoResetDependentsUpdate(!ch);
+                        }
+                    }
+                    if((flag & MC_AUTORESET_TIME) > 0)
+                    {
+                        nodes = xml.getElementsByTagName("autoresettime");
+                        if(nodes != null & nodes.length > 0)
+                        {
+                            document.getElementById("autoresettime").value = getTimeInFormat(nodes[0].childNodes[0].nodeValue);
+                        }
+                    }
+                }
+                function mainControlTempSensorsUpdateTemp()
+                {
+                    ajaxLoadMainControl("&flag=" + (MC_TEMPSENSORS_TEMP|MC_TEMPSENSORS_UPDATE_TEMP));
+                }
+                function mainControlAutolinkingUpdate()
+                {
+                    console.log("mainControlAutolinkingUpdate()");
+                    var links = "";
+                    var nodes = document.getElementsByName("sens_link");
+                    for(i=0;i<nodes.length;i++)
+                    {
+                        var node = nodes[i];
+                        if(node.style.display == "none")
+                        {
+                            continue;
+                        }
+                        var id = node.id.substring(9, node.id.length);
+                        var combo = node.getElementsByTagName("select")[0];
+                        if(links.length > 0)
+                        {
+                            links += ",";
+                        }
+                        links += node.id.substring(9, node.id.length) + ":" + combo.options[combo.selectedIndex].value;
+                    }
+                    ajaxLoadMainControl("&flag=" + (MC_AUTOLINKING|MC_AUTOLINKING_UPDATE) + "&links=" + links);
+                }
+                function gsmclear(){
+                    document.getElementById("output").value = "";
+                }
+                function gsmsendcmd(){
+                    var params = "&cmd=" + document.getElementById("cmd").value + "&nocache=" + Math.random() * 1000000;
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function()
+                    {
+                        if(this.readyState == 4){
+                            if(this.status == 200){
+                                if(this.responseText != null){
+                                }
+                            }
+                        }
+                    }
+                    console.log("ajax_gsmcmdsend" + params);
+                    if(debug)
+                    return;
+                    request.open("GET", "ajax_gsmcmdsend" + params, true);
+                    request.send(null);
+                }
+                function gsmsendatcmd(){
+                    var params = "&atcmd=" + document.getElementById("atcmd").value + "&nocache=" + Math.random() * 1000000;
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function()
+                    {
+                        if(this.readyState == 4){
+                            if(this.status == 200){
+                                if(this.responseText != null){
+                                }
+                            }
+                        }
+                    }
+                    console.log("ajax_gsmcmdsend" + params);
+                    if(debug)
+                    return;
+                    request.open("GET", "ajax_gsmcmdsend" + params, true);
+                    request.send(null);
+                }
+                function checkOutput(){
+                    var params = "&nocache=" + Math.random() * 1000000;
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function()
+                    {
+                        if(this.readyState == 4){
+                            if(this.status == 200){
+                                if(this.responseXML != null){
+                                    loadGsmValues(this.responseXML);
+                                }
+                            }
+                        }
+                    }
+                    console.log("ajax_gsmcheckoutput" + params);
+                    if(debug)
+                    return;
+                    request.open("GET", "ajax_gsmcheckoutput" + params, true);
+                    request.send(null);
+                }
+                
+                function ajaxLoadGsmValuesTestResponse()
+                {
+                    var xml_txt = "<?xml version = \"1.0\" ?><data>"+
+                    "<state>88</state>" +
+                    "<balance>100.25</balance>" +
+                    "<smspacket>76</smspacket>"+
+                    "<output>tra-ta-ta</output>" +
+                    "</data>";
+                    var par = new DOMParser();
+                    var oDom = par.parseFromString(xml_txt, "text/xml");
+                    loadGsmValues(oDom);
+                }
+                
+                var GSM_RESETTING = 1;
+                var GSM_MODULESTARTING = 4;
+                var GSM_MODULEREADY = 8;
+                var GSM_CSQ = 16;
+                var GSM_CREG = 32;
+                var GSM_CLIP = 64;
+                var GSM_CSMS = 128;
+                var GSM_CNMI = 256;
+                var GSM_CMGF = 512;
+                var GSM_CSCS = 1024;
+                function loadGsmValues(xml){
+                    var nodes = xml.getElementsByTagName("state");
+                    if(nodes != null && nodes.length > 0)
+                    {
+                        var val = "Отключено";
+                        var state = nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : 0;
+                        console.log(state);
+                        if((state & GSM_RESETTING) > 0){
+                            val = "Перезагружается";
+                        }
+                        if((state & GSM_MODULESTARTING) > 0){
+                            val = "Стартует";
+                        }
+                        if((state & GSM_MODULEREADY) > 0){
+                            val = "Готово";
+                        }
+                        document.getElementById("gsm_power").innerHTML = val;
+                        document.getElementById("gsm_csq").innerHTML = ((state & GSM_CSQ) > 0 ? "OK" : "ERROR");
+                        document.getElementById("gsm_creg").innerHTML = ((state & GSM_CREG) > 0 ? "OK" : "ERROR");
+                        document.getElementById("gsm_clip").innerHTML = ((state & GSM_CLIP) > 0 ? "OK" : "ERROR");
+                        document.getElementById("gsm_csms").innerHTML = ((state & GSM_CSMS) > 0 ? "OK" : "ERROR");
+                        document.getElementById("gsm_cnmi").innerHTML = ((state & GSM_CNMI) > 0 ? "OK" : "ERROR");
+                        document.getElementById("gsm_cmgf").innerHTML = ((state & GSM_CMGF) > 0 ? "OK" : "ERROR");
+                        document.getElementById("gsm_cscs").innerHTML = ((state & GSM_CSCS) > 0 ? "OK" : "ERROR");
+                    }
+                    nodes = xml.getElementsByTagName("balance");
+                    if(nodes != null && nodes.length > 0){
+                        document.getElementById("gsm_balance").innerHTML = (nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : 0);
+                    }
+                    nodes = xml.getElementsByTagName("smspacket");
+                    if(nodes != null && nodes.length > 0){
+                        document.getElementById("gsm_smspacket").innerHTML = (nodes[0].childNodes.length > 0 ? nodes[0].childNodes[0].nodeValue : 0);
+                    }
+                    nodes = xml.getElementsByTagName("output");
+                    if(nodes != null && nodes.length > 0 && nodes[0].childNodes.length > 0){
+                        var txt = document.getElementById("output").value;
+                        if(txt.length > 0)
+                        txt += "\n";
+                        txt += nodes[0].childNodes[0].nodeValue;
+                        document.getElementById("output").value = txt;
+                    }
+                }
+                function deviceSideBarClick(d_id)
+                {
+                    document.getElementById("dev_caption").innerHTML = document.getElementById("dev"+d_id).childNodes[0].innerHTML;
+                    ajaxLoadDeviceSettings(d_id, "&flag=" + DS_ALL);
+                }
+                function mainSideBarClick(side_menu_id)
+                {
+                    var cap = "";
+                    if(side_menu_id == 2)
+                    {
+                        cap = "GSM модуль";
+                        document.getElementById("main_summary_box").style.display = "none";
+                        document.getElementById("main_control_box").style.display = "none";
+                        document.getElementById("main_gsm_box").style.display = "inline";
+                        clearInterval(systemUptimeTimer);
+                        clearInterval(mainSummaryUpdateTempTimer);
+                        clearInterval(mainControlTempSensorsUpdateTempTimer);
+                        clearInterval(mainControlAutolinkingUpdateTimer);
+                        clearInterval(gsmTimer);
+                        gsmTimer = setInterval("checkOutput()", 5000);
+                    }
+                    else if(side_menu_id == 1)
+                    {
+                        cap = "Управление";
+                        mainControlOnLoad();
+                        document.getElementById("main_summary_box").style.display = "none";
+                        document.getElementById("main_gsm_box").style.display = "none";
+                        document.getElementById("main_control_box").style.display = "inline";
+                        clearInterval(systemUptimeTimer);
+                        clearInterval(mainSummaryUpdateTempTimer);
+                        clearInterval(gsmTimer);
+                        ajaxLoadMainControl("&flag=" + MC_ALL);
+                    }
+                    else
+                    {
+                        cap = "Информация";
+                        mainSummaryOnLoad();
+                        document.getElementById("main_summary_box").style.display = "inline";
+                        document.getElementById("main_control_box").style.display = "none";
+                        document.getElementById("main_gsm_box").style.display = "none";
+                        clearInterval(mainControlTempSensorsUpdateTempTimer);
+                        clearInterval(mainControlAutolinkingUpdateTimer);
+                        clearInterval(gsmTimer);
+                        ajaxLoadMainSummary("&flag=" + MS_ALL);
+                    }
+                    document.getElementById("main_caption").innerHTML = cap;
+                }
+                function mainSummaryOnLoad()
+                {
+                    var nodes = document.getElementsByName("main_dev_con");
+                    for(i=0;i<nodes.length;i++)
+                    {
+                        nodes[i].style.display = "none";
+                    }
+                    updateMainSummaryDateFields();
+                }
+                function mainControlOnLoad()
+                {
+                    document.getElementById("stealthon").disabled = true;
+                    document.getElementById("stealthoff").disabled = true;
+                    document.getElementById("main_ctrl_date").value = getInputDateFormat(growbox_date);
+                    document.getElementById("main_ctrl_time").value = getInputTimeFormat(growbox_date);
+                    var nodes = document.getElementsByName("sens_link");
+                    for(i=0;i<nodes.length;i++)
+                    {
+                        var selNode = nodes[i].getElementsByTagName("select")[0];
+                        while (selNode.firstChild) {
+                            selNode.removeChild(selNode.firstChild);
+                        }
+                        var opt = document.createElement("option");
+                        opt.value = 0;
+                        opt.text = "нет привязки";
+                        selNode.add(opt);
+                        opt = document.createElement("option");
+                        opt.value = 1;
+                        opt.text = "LED светильник левый 1";
+                        selNode.add(opt);
+                        opt = document.createElement("option");
+                        opt.value = 2;
+                        opt.text = "LED светильник левый 2";
+                        selNode.add(opt);
+                        opt = document.createElement("option");
+                        opt.value = 3;
+                        opt.text = "LED светильник правый 1";
+                        selNode.add(opt);
+                        opt = document.createElement("option");
+                        opt.value = 4;
+                        opt.text = "LED светильник правый 2";
+                        selNode.add(opt);
+                        opt = document.createElement("option");
+                        opt.value = 5;
+                        opt.text = "ДНАТ";
+                        selNode.add(opt);
+                        nodes[i].style.display = "none";
+                    }
+                }
+                function updateMainSummaryDateFields()
+                {
+                    var options = {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric'
+                    };
+                    document.getElementById("growbox_date").innerHTML = growbox_date.toLocaleString("ru", options);
+                    var options = {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    };
+                    document.getElementById("growbox_startdate").innerHTML = growbox_startdate.toLocaleString("ru", options);
+                    clearInterval(systemUptimeTimer);
+                    systemUptimeTimer = setInterval("sysUpdateUptime()", 1000);
+                }
+                function sysUpdateUptime()
+                {
+                    var delta = growbox_date - growbox_startdate;
+                    var days = Math.floor(delta/86400000);
+                    delta -= days*86400000;
+                    var hours = Math.floor(delta/3600000);
+                    delta -= hours*3600000;
+                    var minutes = Math.floor(delta/60000);
+                    var seconds = Math.floor((delta - minutes*60000)/1000);
+                    document.getElementById("growbox_uptime").innerHTML = "" + days + " д. " + hours + " ч. " + minutes + " мин. " + seconds + "сек.";
+                }
+                function mainSummaryUpdateTemp()
+                {
+                    ajaxLoadMainSummary("&flag=" + (MS_CONNECTEDTMP|MS_CONNECTEDTMP_UPDATE));
+                }
+                function devConnectedClick()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_CONNECTED + "&connected=" + (document.getElementById("dev_con").checked ? 1 : 0));
+                }
+                function devModeClick()
+                {
+                    var nodes = document.getElementsByName("dev_mode");
+                    var val = 0;
+                    for(i=0;i<nodes.length;i++)
+                    {
+                        if(nodes[i].checked)
+                        {
+                            val = i;
+                            break;
+                        }
+                    }
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_MODE + "&mode=" + (val == 1 ? "auto" : (val == 2 ? "on" : "off")));
+                }
+                function ledModeExClick()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_MODEEX + "&modeex=" + (document.getElementsByName("dev_modeexled")[0].checked ? "ledhalf" : "ledfull"));
+                }
+                function tubefanModeExClick()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_MODEEX + "&modeex=" + (document.getElementsByName("dev_modeextubefan")[0].checked ? "tubelow" : "tubehigh"));
+                }
+                function devApplySheduleClick()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_SHEDULE + "&shedulestart=" + document.getElementById("dev_shedule_start").value +
+                                           "&sheduleend=" + document.getElementById("dev_shedule_end").value);
+                }
+                function devApplyRunSleepClick()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + (DS_RUNSLEEP|DS_STARTINSEC) +
+                                           "&runsleepitv=" + document.getElementById("run_itv").value + ":" +
+                                           document.getElementById("sleep_itv").value);
+                }
+                function devRunIncDutyRatioCommand()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + (DS_RUNSLEEP|DS_STARTINSEC) + "&runcmd=incdutyratio");
+                }
+                function devRunDecDutyRatioCommand()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + (DS_RUNSLEEP|DS_STARTINSEC) + "&runcmd=decdutyratio");
+                }
+                function devRunStartWorkCommand()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_STARTINSEC + "&runcmd=startwork");
+                }
+                function devRunStartSleepCommand()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_STARTINSEC + "&runcmd=startsleep");
+                }
+                function devSaveSettings()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=0&runcmd=savetomem");
+                }
+                function devCalcDutyRatio()
+                {
+                    var val = 1.0;
+                    var run = Number(document.getElementById("run_itv").value);
+                    var sleep = Number(document.getElementById("sleep_itv").value);
+                    if((run + sleep) > 0)
+                    val = 1.0*run / (run + sleep);
+                    document.getElementById("run_sleep_coef").innerHTML = val.toFixed(4);
+                }
+                function checkStartInSec()
+                {
+                    var val = Number(document.getElementById("work_dur").innerHTML);
+                    if(val > 0)
+                    {
+                        val--;
+                        document.getElementById("work_dur").innerHTML = val;
+                        startWithInDecreased = true;
+                    }
+                    else
+                    {
+                        if(startWithInDecreased)
+                        {
+                            ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_STARTINSEC);
+                            startWithInDecreased = false;
+                        }
+                        return;
+                    }
+                }
+                function checkDnatCoolLost()
+                {
+                    var val = Number(document.getElementById("dnat_cool_lost").innerHTML);
+                    if(val > 0)
+                    {
+                        val--;
+                        document.getElementById("dnat_cool_lost").innerHTML = val;
+                        dnatCoolLostDecreased = true;
+                    }
+                    else
+                    {
+                        if(dnatCoolLostDecreased)
+                        {
+                            ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_DNATCOOLLOST);
+                            startWithInDecreased = false;
+                        }
+                        return;
+                    }
+                }
+                function checkWaterLost()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_WATERLOST);
+                }
+                function waterPortionApplyClick()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_WATERPORTION + "&waterportion=" + document.getElementById("water_portion").value);
+                }
+                function waterRunSleepItvApplyClick()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_RUNSLEEP + "&runitv=" + document.getElementById("water_itv_run").value +
+                                           "&sleepitv=" + document.getElementById("water_itv_sleep").value + "&waterreferencedate=" + document.getElementById("water_reference_date").value);
+                }
+                function forceWateringStart()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_WATERLOST + "&runcmd=forcewateringstart");
+                }
+                function forceWateringStop()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_WATERLOST + "&runcmd=forcewateringstop");
+                }
+                function dnatStartCooling()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_DNATCOOLLOST + "&runcmd=dnatstartcooling");
+                }
+                function dnatStopCooling()
+                {
+                    ajaxLoadDeviceSettings(curr_dev_id, "&flag=" + DS_DNATCOOLLOST + "&runcmd=dnatstopcooling");
+                }
+                
+                function stealthOn()
+                {
+                    ajaxLoadMainControl("&flag=" + MC_STEALTH + "&stealth=1");
+                }
+                function stealthOff()
+                {
+                    ajaxLoadMainControl("&flag=" + MC_STEALTH + "&stealth=0");
+                }
+                function applySysDate()
+                {
+                    ajaxLoadMainControl("&flag=" + MC_DATE + "&date=" + document.getElementById("main_ctrl_date").value);
+                }
+                function applySysTime()
+                {
+                    ajaxLoadMainControl("&flag=" + MC_TIME + "&time=" + document.getElementById("main_ctrl_time").value);
+                }
+                function applyDevClimateControls()
+                {
+                    ajaxLoadMainControl("&flag=" + MC_DEVICES_TEMP_CONTROL +
+                                        "&devwarntemp=" + document.getElementById("dev_warn_temp").value +
+                                        "&devextremetemp=" + document.getElementById("dev_extreme_temp").value +
+                                        "&devoverheattemp=" + document.getElementById("dev_overheat_temp").value +
+                                        "&devshutdowntemp=" + document.getElementById("dev_shutdown_temp").value)
+                                        ;
+                }
+                function applySysClimateControls()
+                {
+                    ajaxLoadMainControl("&flag=" + MC_SYSTEM_TEMP_CONTROL +
+                                        "&syswarntemp=" + document.getElementById("sys_warn_temp").value +
+                                        "&sysshutdowntemp=" + document.getElementById("sys_shutdown_temp").value +
+                                        "&sysmaxhum=" + document.getElementById("sys_max_hum").value);
+                }
+                function startAutolinking()
+                {
+                    ajaxLoadMainControl("&flag=" + MC_AUTOLINKING + "&runcmd=autolinkstart");
+                }
+                function stopAutolinking()
+                {
+                    ajaxLoadMainControl("&flag=" + MC_AUTOLINKING + "&runcmd=autolinkstop");
+                }
+                function sensorLinkApply(sens)
+                {
+                    var combo = document.getElementById("sens_dev" + sens);
+                    ajaxLoadMainControl("&flag=" + MC_TEMPSENSORS_LINKS + "&senslink=" + sens + ":" +
+                                        combo.options[combo.selectedIndex].value);
+                }
+                function sysOn()
+                {
+                    enableSysPowerButton(false);
+                    setTimeout("enableSysPowerButton(true)", 5000);
+                    ajaxLoadMainControl("&flag=0&runcmd=syson");
+                }
+                function sysOff()
+                {
+                    enableSysPowerButton(false);
+                    setTimeout("enableSysPowerButton(true)", 5000);
+                    ajaxLoadMainControl("&flag=0&runcmd=sysoff");
+                }
+                function afterSysReset()
+                {
+                    document.getElementById("sysreset").disabled = false;
+                    ajaxLoadMainControl("&flag=" + MC_ALL);
+                }
+                function sysReset()
+                {
+                    document.getElementById("sysreset").disabled = true;
+                    setTimeout("afterSysReset()", 15000);
+                    ajaxLoadMainControl("&flag=0&runcmd=sysreset");
+                }
+                function enableSysPowerButton(value)
+                {
+                    document.getElementById("syspoweron").disabled = !value;
+                    document.getElementById("syspoweroff").disabled = !value;
+                }
+                function autoSwitchDependentsUpdate(disabled)
+                {
+                    document.getElementById("autoswitchonitv").disabled = disabled;
+                    document.getElementById("autoswitchonitv_apply").disabled = disabled;
+                }
+                function autoSwitchOnApply()
+                {
+                    var ch = document.getElementById("autoswitchon").checked;
+                    autoSwitchDependentsUpdate(!ch);
+                    ajaxLoadMainControl("&flag=" + MC_AUTOSWITCHON + "&autoswitchon=" + (ch ? "1" : "0"));
+                }
+                function autoSwitchOnItvApply()
+                {
+                    ajaxLoadMainControl("&flag=" + MC_AUTOSWITCHON_ITV + "&autoswitchonitv=" +
+                                        document.getElementById("autoswitchonitv").value);
+                }
+                function sysAutoResetDependentsUpdate(disabled)
+                {
+                    document.getElementById("autoresettime").disabled = disabled;
+                    document.getElementById("autoresettime_apply").disabled = disabled;
+                }
+                function sysAutoResetApply()
+                {
+                    var ch = document.getElementById("sysautoreset").checked;
+                    sysAutoResetDependentsUpdate(!ch);
+                    ajaxLoadMainControl("&flag=" + MC_AUTORESET + "&autoreset=" + (ch ? "1" : "0"));
+                }
+                function sysAutoResetTimeApply()
+                {
+                    ajaxLoadMainControl("&flag=" + MC_AUTORESET_TIME + "&autoresettime=" +
+                                        document.getElementById("autoresettime").value);
+                }
+                </script>
+                </head>
+    <body onload="LoadPage()">
+        <div id="page-container">
+            <div id="main-nav">
+                <div style="float:left;width:50%">
+                    <dl>
+                        <dt id="nav_main"><a href="javascript:" onclick="LoadMainPageContent()">Основная</a></dt>
+                        <dt id="nav_dev"><a href="javascript:" onclick="LoadDevicesPageContent()">Устройства</a></dt>
+                        <dt id="nav_stat"><a href="javascript:" onclick="LoadStatPageContent()">Статистика</a></dt>
+                    </dl>
+                </div>
+                <div id="growbox_time_div" style="float:left;width:50%">
+                    <p align="right"><span id="growbox_time"></span></p>
+                </div>
+            </div>
+            <div id="header">
+                <canvas id="gauge_temp" data-type="canv-gauge" width="150" height="150"
+                    data-title="Температура общ."
+                    data-min-value="15"
+                    data-max-value="40"
+                    data-major-ticks="15 20 25 30 35 40"
+                    data-minor-ticks="5"
+                    data-stroke-ticks="true"
+                    data-units="*C"
+                    data-value-format="2.2"
+                    data-colors-title="#00f"
+                    data-glow="true"
+                    data-highlights="15 22 #04f, 22 28 #2d6, 28 33 #ed2, 33 40 #e62"
+                    data-onready="setInterval( function() { Gauge.Collection.get('gauge_temp').setValue(sys_temp);}, 10000);">
+                </canvas>
+                <canvas id="gauge_humidity" data-type="canv-gauge" width="150" height="150"
+                    data-title="Влажность"
+                    data-min-value="0"
+                    data-max-value="100"
+                    data-major-ticks="0 10 20 30 40 50 60 70 80 90 100"
+                    data-minor-ticks="5"
+                    data-stroke-ticks="true"
+                    data-units="%"
+                    data-value-format="2.2"
+                    data-colors-title="#00f"
+                    data-glow="true"
+                    data-highlights="0 15 #d50, 15 30 #fb2, 30 45 #ff2, 45 80 #7f2, 80 100 #2af"
+                    data-onready="setInterval( function() { Gauge.Collection.get('gauge_humidity').setValue(humidity);}, 10000);">
+                </canvas>
+                <canvas id="gauge_devtemp" data-type="canv-gauge" width="150" height="150"
+                    data-title="Темп. устройств"
+                    data-min-value="30"
+                    data-max-value="60"
+                    data-major-ticks="30 35 40 45 50 55 60"
+                    data-minor-ticks="5"
+                    data-stroke-ticks="true"
+                    data-units="*C"
+                    data-value-format="2.2"
+                    data-colors-title="#00f"
+                    data-glow="true"
+                    data-highlights="44 48 #ee2, 48 52 #eb2, 52 56 #e71, 56 60 #d31"
+                    data-onready="setInterval( function() { Gauge.Collection.get('gauge_devtemp').setValue(dev_temp);}, 10000);">
+                </canvas>
+            </div>
+            <div id="sidebar">
+            </div>
+            <div id="content">
+            </div>
+            <div id="footer">Footer</div>
+        </div>
+    </body>
+</html>

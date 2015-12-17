@@ -1,0 +1,7 @@
+<dl>
+    <dt id="stat_hour"><a href="javascript:" onclick="">За час</a></dt>
+    <dt id="stat_day"><a href="javascript:" onclick="">За сутки</a></dt>
+    <dt id="stat_week"><a href="javascript:" onclick="">За неделю</a></dt>
+    <dt id="stat_period"><a href="javascript:" onclick="">За период</a></dt>
+</dl>
+

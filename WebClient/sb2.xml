@@ -1,0 +1,11 @@
+<dl>
+    <dt id="dev1"><a href="javascript:" onclick="deviceSideBarClick(1)">Устройство 1</a></dt>
+    <dt id="dev2"><a href="javascript:" onclick="deviceSideBarClick(2)">Устройство 2</a></dt>
+    <dt id="dev3"><a href="javascript:" onclick="deviceSideBarClick(3)">Устройство 3</a></dt>
+    <dt id="dev4"><a href="javascript:" onclick="deviceSideBarClick(4)">Устройство 4</a></dt>
+    <dt id="dev5"><a href="javascript:" onclick="deviceSideBarClick(5)">Устройство 5</a></dt>
+    <dt id="dev6"><a href="javascript:" onclick="deviceSideBarClick(6)">Устройство 6</a></dt>
+    <dt id="dev7"><a href="javascript:" onclick="deviceSideBarClick(7)">Устройство 7</a></dt>
+    <dt id="dev8"><a href="javascript:" onclick="deviceSideBarClick(8)">Устройство 8</a></dt>
+    <dt id="dev9"><a href="javascript:" onclick="deviceSideBarClick(9)">Устройство 9</a></dt>
+</dl>

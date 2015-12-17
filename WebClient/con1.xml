@@ -1,0 +1,253 @@
+﻿<div id="main_header_box" style="border-bottom:1px solid #aaaaaa;margin-bottom:5px">
+    <h2><span id="main_caption"></span></h2>
+</div>
+<div id="main_summary_box" class="hidden">
+    <div id="main_date_box" class="main_box">
+        <fieldset>
+            <legend class="block_caption">Дата и время</legend>
+            <div class="main_box_inn">
+                <p class="main_indent">Текущая дата: <span id="growbox_date" class="data_value">-</span></p>
+                <p class="main_indent">Последняя дата запуска: <span id="growbox_startdate" class="data_value">-</span><span style="padding:0px 20px"></span>В работе: <span id="growbox_uptime" class="data_value">-</span></p>
+            </div>
+        </fieldset>
+    </div>
+    <div id="main_devices_box" class="main_box">
+        <fieldset>
+            <legend class="block_caption">Подключенные устройства</legend>
+            <div class="main_box_inn">
+                <table cellspacing="5px">
+                    <tr name="main_dev_con" id="main_dev_con1">
+                        <td id="main_dev_con_name1" class="data_value">Устройство1</td>
+                        <td><span style="margin-left:10px"></span>Температура: <span id="main_dev_con_tmp1" class="data_value">-</span> &degC</td>
+                    </tr>
+                    <tr name="main_dev_con" id="main_dev_con2">
+                        <td id="main_dev_con_name2" class="data_value">Устройство2</td>
+                        <td><span style="margin-left:10px"></span>Температура: <span id="main_dev_con_tmp2" class="data_value">-</span> &degC</td>
+                    </tr>
+                    <tr name="main_dev_con" id="main_dev_con3">
+                        <td id="main_dev_con_name3" class="data_value">Устройство3</td>
+                        <td><span style="margin-left:10px"></span>Температура: <span id="main_dev_con_tmp3" class="data_value">-</span> &degC</td>
+                    </tr>
+                    <tr name="main_dev_con" id="main_dev_con4">
+                        <td id="main_dev_con_name4" class="data_value">Устройство4</td>
+                        <td><span style="margin-left:10px"></span>Температура: <span id="main_dev_con_tmp4" class="data_value">-</span> &degC</td>
+                    </tr>
+                    <tr name="main_dev_con" id="main_dev_con5">
+                        <td id="main_dev_con_name5" class="data_value">Устройство5</td>
+                        <td><span style="margin-left:10px"></span>Температура: <span id="main_dev_con_tmp5" class="data_value">-</span> &degC</td>
+                    </tr>
+                    <tr name="main_dev_con" id="main_dev_con6">
+                        <td id="main_dev_con_name6" class="data_value">Устройство6</td>
+                        <td></td>
+                    </tr>
+                    <tr name="main_dev_con" id="main_dev_con7">
+                        <td id="main_dev_con_name7" class="data_value">Устройство7</td>
+                        <td></td>
+                    </tr>
+                    <tr name="main_dev_con" id="main_dev_con8">
+                        <td id="main_dev_con_name8" class="data_value">Устройство8</td>
+                        <td></td>
+                    </tr>
+                    <tr name="main_dev_con" id="main_dev_con9">
+                        <td id="main_dev_con_name9" class="data_value">Устройство9</td>
+                        <td></td>
+                    </tr>
+                    <tr name="main_dev_con" id="main_dev_con10">
+                        <td id="main_dev_con_name10" class="data_value">Устройство10</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+</div>
+<div id="main_control_box" class="hidden">
+    <div id="main_primary_control_box" class="main_box">
+        <fieldset>
+            <legend class="block_caption">Основные настройки</legend>
+            <div class="main_box_inn">
+                <table>
+                    <tr>
+                        <td align="right">Стелс-режим:</td>
+                        <td><button id="stealthon" class="big_button" disabled onclick="stealthOn()">Вкл</button><button id="stealthoff" class="big_button" disabled onclick="stealthOff()">Выкл</button>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Питание системы:</td>
+                        <td><button id="syspoweron" class="big_button" onclick="sysOn()">Вкл</button><button id="syspoweroff" class="big_button" onclick="sysOff()">Выкл</button></td>
+                        <td align="right"><input id="autoswitchon" type="checkbox" onchange="autoSwitchOnApply()">Включение питания каждые:</input></td>
+                        <td><input id="autoswitchonitv" type="number" style="width:70px;margin:0 5px" min="10" max="1200" step="10" disabled></span> минут</td>
+                        <td><button id="autoswitchonitv_apply" onclick="autoSwitchOnItvApply()" disabled>Применить</button></td>
+                    <tr>
+                    <tr>
+                        <td align="right">Перезагрузка системы:</td>
+                        <td><button id="sysreset" class="big_button" onclick="sysReset()">ОК</button></td>
+                        <td align="right"><input id="sysautoreset" type="checkbox" onchange="sysAutoResetApply()">Ежедневная перезагрузка системы в:</input></td>
+                        <td><input id="autoresettime" type="time" style="margin:0 5px; width:70px" disabled></input></td>
+                        <td><button id="autoresettime_apply" onclick="sysAutoResetTimeApply()" disabled>Применить</button></td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+    <div id="main_datetime_control_box" class="main_box">
+        <fieldset>
+            <legend class="block_caption">Дата и время</legend>
+            <div class="main_box_inn">
+                <table cellspacing="5px">
+                    <tr>
+                        <td>Дата:</td>
+                        <td><input type="date" id="main_ctrl_date"></input><td>
+                        <td><button onclick="applySysDate()">Применить</button></td>
+                    </tr>
+                    <tr>
+                        <td>Время:</td>
+                        <td><input type="time" id="main_ctrl_time"></input><td>
+                        <td><button onclick="applySysTime()">Применить</button></td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+    <div id="main_climate_and_safe_control_box" class="main_box">
+        <fieldset>
+            <legend class="block_caption">Климат и безопасность</legend>
+            <div class="main_box_inn">
+                <div style="float:left;padding-right:10px">
+                    <table cellspacing=5px>
+                        <tr>
+                            <th colspan="2" align="left" style="border-bottom:1px solid #000000">Устройства</th>
+                        </tr>
+                        <tr>
+                            <td align="right">Температура предупреждения:</td>
+                            <td><input id="dev_warn_temp" type="number" style="width:50px;margin:0 5px" min="0" max="100" step="0.5"></input>&#176C</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Максимальная допустимая рабочая температура:</td>
+                            <td><input id="dev_extreme_temp" type="number" style="width:50px;margin:0 5px" min="0" max="100" step="0.5"></input>&#176C</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Максимальная температура перегрева:</td>
+                            <td><input id="dev_overheat_temp" type="number" style="width:50px;margin:0 5px" min="0" max="100" step="0.5"></input>&#176C</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Температура незамедлительного отключения системы:</td>
+                            <td><input id="dev_shutdown_temp" type="number" style="width:50px;margin:0 5px" min="0" max="100" step="0.5"></input>&#176C</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td align="right"><button onclick="applyDevClimateControls()">Применить</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="float:left;padding-left:10px">
+                    <table cellspacing=5px>
+                        <tr>
+                            <th colspan="2" align="left" style="border-bottom:1px solid #000000">Система</th>
+                        </tr>
+                        <tr>
+                            <td align="right">Температура предупреждения:</td>
+                            <td><input id="sys_warn_temp" type="number" style="width:50px;margin:0 5px" min="0" max="100" step="0.5"></input>&#176C</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Температура незамедлительного отключения:</td>
+                            <td><input id="sys_shutdown_temp" type="number" style="width:50px;margin:0 5px" min="0" max="100" step="0.5"></input>&#176C</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Максимальная влажность:</td>
+                            <td><input id="sys_max_hum" type="number" style="width:50px;margin:0 5px" min="0" max="100" step="0.5"></input>%</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp</td>
+                            <td align="right" rowspan="2" valign="bottom"><button onclick="applySysClimateControls()">Применить</button></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div id="main_datetime_control_box" class="main_box">
+        <fieldset>
+            <legend class="block_caption">Привязка датчиков температуры</legend>
+            <div class="main_box_inn">
+                <p>Автоматическая привязка</p>
+                <p class="main_indent">Состояние:
+                    <span class="data_value" id="auto_linking_state">готово</span>
+                    <button style="margin:0px 0px 0px 15px" id="auto_linking_btn" onclick="startAutolinking()">Начать</button>
+                    <button style="margin:0px 0px 0px 15px" id="auto_linking_btn_stop" onclick="stopAutolinking()">Завершить</button>
+                </p>
+                <p>Привязка вручную</p>
+                <p name="sens_link" class="main_senslink" id="sens_link0">Датчик 1 (t = <span id="sens_link_temp0" class="data_value">-</span> &#176C) <-> устройство:
+                    <select id="sens_dev0" style="margin:0px 10px"></select>
+                    <button onclick="sensorLinkApply(0)">Применить</button>
+                </p>
+                <p name="sens_link" class="main_senslink" id="sens_link1">Датчик 2 (t = <span id="sens_link_temp1" class="data_value">-</span> &#176C) <-> устройство:
+                    <select id="sens_dev1" style="margin:0px 10px"></select>
+                    <button onclick="sensorLinkApply(1)">Применить</button>
+                </p>
+                <p name="sens_link" class="main_senslink" id="sens_link2">Датчик 3 (t = <span id="sens_link_temp2" class="data_value">-</span> &#176C) <-> устройство:
+                    <select id="sens_dev2" style="margin:0px 10px"></select>
+                    <button onclick="sensorLinkApply(2)">Применить</button>
+                </p>
+                <p name="sens_link" class="main_senslink" id="sens_link3">Датчик 4 (t = <span id="sens_link_temp3" class="data_value">-</span> &#176C) <-> устройство:
+                    <select id="sens_dev3" style="margin:0px 10px"></select>
+                    <button onclick="sensorLinkApply(3)">Применить</button>
+                </p>
+                <p name="sens_link" class="main_senslink" id="sens_link4">Датчик 5 (t = <span id="sens_link_temp4" class="data_value">-</span> &#176C) <-> устройство:
+                    <select id="sens_dev4" style="margin:0px 10px"></select>
+                    <button onclick="sensorLinkApply(4)">Применить</button>
+                </p>
+                <p name="sens_link" class="main_senslink" id="sens_link5">Датчик 6 (t = <span id="sens_link_temp5" class="data_value">-</span> &#176C) <-> устройство:
+                    <select id="sens_dev5" style="margin:0px 10px"></select>
+                    <button onclick="sensorLinkApply(5)">Применить</button>
+                </p>
+                <p name="sens_link" class="main_senslink" id="sens_link6">Датчик 7 (t = <span id="sens_link_temp6" class="data_value">-</span> &#176C) <-> устройство:
+                    <select id="sens_dev6" style="margin:0px 10px"></select>
+                    <button onclick="sensorLinkApply(6)">Применить</button>
+                </p>
+                <p name="sens_link" class="main_senslink" id="sens_link7">Датчик 8 (t = <span id="sens_link_temp7" class="data_value">-</span> &#176C) <-> устройство:
+                    <select id="sens_dev7" style="margin:0px 10px"></select>
+                    <button onclick="sensorLinkApply(7)">Применить</button>
+                </p>
+            </div>
+        </fieldset>
+    </div>
+</div>
+<div id="main_gsm_box" class="hidden">
+    <div id="main_gsmsummary_box" class="main_box">
+        <fieldset>
+            <legend class="block_caption">Состояние</legend>
+            <p>Питание: <span class="data_value" id="gsm_power">Отключен</span></p>
+            <p>Качество связи: <span class="data_value" id="gsm_csq">ERROR</span></p>
+            <p>Регистрация в сети: <span class="data_value" id="gsm_creg">ERROR</span></p>
+            <p>Инициализация параметров</p>
+            <dl style="margin:0; padding:0">
+                <dd><p>CLIP: <span class="data_value" id="gsm_clip">ERROR</span></p></dd>
+                <dd><p>CSMS: <span class="data_value" id="gsm_csms">ERROR</span></p></dd>
+                <dd><p>CNMI: <span class="data_value" id="gsm_cnmi">ERROR</span></p></dd>
+                <dd><p>CMGF: <span class="data_value" id="gsm_cmgf">ERROR</span></p></dd>
+                <dd><p>CSCS: <span class="data_value" id="gsm_cscs">ERROR</span></p></dd>
+            </dl>
+            <p>Баланс: <span class="data_value" id="gsm_balance">0</span> р.</p>
+            <p>Остаток SMS в пакете: <span class="data_value" id="gsm_smspacket">0</span> шт.</p>
+        </fieldset>
+    </div>
+    <div id="main_gsmcontrol_box" class="main_box">
+        <fieldset>
+            <legend class="block_caption">Управление</legend>
+            <p style="padding-bottom:0px">Команда АТ</p>
+            <p><textarea id="atcmd" cols="50" rows="1"></textarea> <button style="vertical-align: top" onclick="gsmsendatcmd()">ОК</button></p>
+            <p style="padding-bottom:0px">Команда консоли</p>
+            <p><textarea id="cmd" cols="50" rows="1"></textarea> <button style="vertical-align: top" onclick="gsmsendcmd()">ОК</button></p>
+            <p style="padding-bottom:0px">Вывод</p>
+            <p><textarea id="output" cols="50" rows="10" readonly></textarea> <button style="vertical-align: top" onclick="gsmclear()">Очистить</button></p>
+        </fieldset>
+    </div>
+</div>
+
