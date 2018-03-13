@@ -68,27 +68,6 @@ void setup() {
     greenhouse.init(pins);
 }
 
-void loop() {
-    // put your main code here, to run repeatedly:
-    delay(25);
-    server.loop();
-    greenhouse.loopGSM();
-    if((loopCounter % 4) == 0)
-    {
-        greenhouse.loopWarnLeds();
-    }
-    if(loopCounter == 19)
-    {
-        checkCommandFromSerial();
-        greenhouse.loop();
-        loopCounter = 0;
-    }
-    else
-    {
-        loopCounter++;
-    }
-}
-
 void checkCommandFromSerial()
 {
     int l = Serial.available();
@@ -142,5 +121,25 @@ void checkCommandFromSerial()
             if(command.length() > 0)
                 greenhouse.executeCommand(command, params, paramCount);
         }
+    }
+}
+void loop() {
+    // put your main code here, to run repeatedly:
+    delay(25);
+    server.loop();
+    greenhouse.loopGSM();
+    if((loopCounter % 4) == 0)
+    {
+        greenhouse.loopWarnLeds();
+    }
+    if(loopCounter == 19)
+    {
+        checkCommandFromSerial();
+        greenhouse.loop();
+        loopCounter = 0;
+    }
+    else
+    {
+        loopCounter++;
     }
 }
